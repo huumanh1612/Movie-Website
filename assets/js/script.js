@@ -3,20 +3,15 @@
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
-const domainText = document.getElementById('domainText');
 
 registerLink.addEventListener('click', ()=> {
   wrapper.classList.add('active');
-  changeDomain('Login.com')
 });
 
 loginLink.addEventListener('click', ()=> {
   wrapper.classList.remove('active');
-  changeDomain('SignUp.com')
 });
-function changeDomain(domain) {
-  domainText.textContent = domain;
-}
+
 /**
  * navbar variables
  */
