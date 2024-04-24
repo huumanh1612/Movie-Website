@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name ="viewport" content="width = device-width, initial-scale=1.0">
+    <title>Movie Streaming Website</title>
+    <link rel="stylesheet" href = "./assets/css/Log-Regis.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('./assets/images/hero-bg.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <header>          
+        <img src="./assets/images/logo.svg" alt="Filmlane logo">  
+    </header>
+
+    <div class="wrapper">
+        <!--Log in-->
+        <div class="form-box login">
+            <h1>Log In</h1>
+            <form action="">
+                <div class ="input-box">
+                    <i class='bx bxs-user-circle'></i>
+                    <input type="text" required>
+                    <label>Username</label>
+                    
+                </div>
+    
+                <div class ="input-box">
+                    <i class='bx bx-lock' ></i>
+                    <input type="password"  required>
+                    <label>Password</label>
+                    
+                </div>
+    
+                <div class ="remember-forgot">
+                    <label><input type="checkbox"> Remember me </label>
+                </div>
+    
+                <button type="submit" class="btn">Login</button>
+
+            </form>
+        </div>
+
+        <!--Sign up-->
+        <div class="form-box register">
+            <h1>Sign Up</h1>
+            <form action="">
+                <div class ="input-box">
+                    <i class='bx bxs-user-circle'></i>
+                    <input type="text" required>
+                    <label>Username</label>    
+                </div>
+    
+                <div class ="input-box">
+                    <i class='bx bxs-envelope'></i>
+                    <input type="email" required>
+                    <label>Email</label>    
+                </div>
+
+                <div class ="input-box">
+                    <i class='bx bx-lock' ></i>
+                    <input type="password"  required>
+                    <label>Password</label>  
+                </div>
+    
+                <div class ="remember-forgot">
+                    <label><input type="checkbox">I agree to the terms & conditions </label>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<body>  
+</html>
