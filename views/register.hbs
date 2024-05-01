@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name ="viewport" content="width = device-width, initial-scale=1.0">
+    <title>Movie Streaming Website</title>
+    <link rel="stylesheet" href = "/css/Register.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('/images/hero-bg.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <header>          
+        <a href="/" class="logo">
+            <img src="/images/logo.svg" alt="Filmlane logo">
+          </a>  
+    </header>
+
+    <div class="wrapper">
+      
+        <!--Sign up-->
+        <div class="form-box register">
+            <h1>Sign Up</h1>
+            <form action="/auth/register" method="POST">
+                <div class ="input-box">
+                    <i class='bx bxs-user-circle'></i>
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Username</label>
+                       
+                </div>
+    
+                <div class ="input-box">
+                    <i class='bx bxs-envelope'></i>
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                     
+                </div>
+
+                <div class ="input-box">
+                    <i class='bx bx-lock' ></i>
+                    <input type="password" id="passsword" name="password" required>
+                    <label for="password">Password</label>  
+                </div>
+
+                 <div class ="input-box">
+                    <i class='bx bx-lock' ></i>
+                    <input type="password" id="passswordConfirm" name="passwordConfirm" required>
+                    <label for="password">Confirm Password</label>  
+                        {{#if message }}
+                            <div class="error-message">
+                                <h5 class="alert alert-danger mt-2">{{message}}</h5>
+                            </div>
+                        {{/if}}
+                </div>
+                
+    
+                <div class ="remember-forgot">
+                    <label><input type="checkbox">I agree to the terms & conditions </label>
+                </div>
+    
+                <button type="submit" class="btn">Sign Up</button>
+    
+                <div class ="login-register">
+                    <p>Already have an account? <a href="/login" class ="login-link">Log In</a></p>
+                </div>
+
+            </form>
+
+            
+        </div>
+            
+    </div>
+    
+
+    <script src="./assets/js/Log-Regis.js"></script>
+    <script src ="app.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<body>  
+</html>

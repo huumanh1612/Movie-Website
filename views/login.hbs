@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name ="viewport" content="width = device-width, initial-scale=1.0">
+    <title>Movie Streaming Website</title>
+    <link rel="stylesheet" href = "/css/Login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('/images/hero-bg.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <header>          
+        <a href="/" class="logo">
+            <img src="/images/logo.svg" alt="Filmlane logo">
+        </a>  
+    </header>
+
+    <div class="wrapper">
+        <!--Log in-->
+        <div class="form-box login">
+            <h1>Log In</h1>
+            <form action="/auth/login" method="POST">
+                <div class ="input-box">
+                    <i class='bx bxs-user-circle'></i>
+                    <input type="text" id="name" name="name" required>
+                    <label>Username</label>
+                    
+                </div>
+    
+                <div class ="input-box">
+                    <i class='bx bx-lock' ></i>
+                    <input type="password" id="passsword" name="password" required>
+                    <label>Password</label>
+                    {{#if message }}
+                        <div class="error-message">
+                            <h5 class="alert alert-danger mt-2">{{message}}</h5>
+                        </div>
+                    {{/if}}
+                </div>
+    
+                <div class ="remember-forgot">
+                    <label><input type="checkbox"> Remember me </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                
+    
+                <button type="submit" class="btn">Login</button>
+    
+                <div class ="login-register">
+                    <p>Don't have an account? <a href="/register" class ="register-link">Sign Up</a></p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="./assets/js/Log-Regis.js"></script>
+    <script src ="app.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<body>  
+</html>
