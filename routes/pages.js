@@ -22,5 +22,7 @@ router.get("/homepage", (req, res) => {
     res.render("homepage");
 });
 
-
+router.get("/movie", (req, res) => {
+    res.render("movie");
+});
 module.exports = router;
