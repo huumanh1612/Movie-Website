@@ -25,4 +25,12 @@ router.get("/homepage", (req, res) => {
 router.get("/movie", (req, res) => {
     res.render("movie");
 });
+
+router.get("/adminLogin", (req, res) => {
+    res.render("adminLogin");
+});
+
+router.get("/adminHomepage", (req, res) => {
+    res.render("adminHomepage");
+});
 module.exports = router;
