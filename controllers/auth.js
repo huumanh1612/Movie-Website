@@ -13,7 +13,17 @@ const db = mysql.createConnection({
 exports.register = (req, res) => {
     console.log(req.body);
 
-    const { name, email, password, passwordConfirm} = req.body;
+    const {name, email, password, passwordConfirm} = req.body;
+    const passwordRegex = /^\S{8,}$/;
+
+    // Check if the password meets the requirements
+    if (!passwordRegex.test(password)) {
+        return res.render("register", {
+            message: "Password must contain no spaces, and at least 8 characters long."
+        });
+    }
+
+
 
     db.query('SELECT * FROM users WHERE name = ? or email = ?', [name, email], async (error, results) => {
         if (error) {
