@@ -26,7 +26,7 @@ router.get("/movie", (req, res) => {
     res.render("movie");
 });
 
-router.get("/adminLogin", (req, res) => {
+router.get("/admin", (req, res) => {
     res.render("adminLogin");
 });
 

@@ -14,7 +14,8 @@ exports.register = (req, res) => {
     console.log(req.body);
 
     const {name, email, password, passwordConfirm} = req.body;
-    const passwordRegex = /^\S{8,}$/;
+    const defaultRole = 'user';
+    const passwordRegex = /^\S{7,}$/;
 
     // Check if the password meets the requirements
     if (!passwordRegex.test(password)) {
@@ -52,7 +53,7 @@ exports.register = (req, res) => {
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
 
-        db.query("INSERT INTO users SET ?", { name: name, email: email, password: hashedPassword }, (error, results) => {
+        db.query("INSERT INTO users SET ?", { name: name, email: email, password: hashedPassword , role: defaultRole }, (error, results) => {
             if (error) {
                 console.log(error);
             } else {
@@ -85,14 +86,22 @@ exports.login = async (req, res) => {
             });
         }
 
-        if (!await bcrypt.compareSync(password, results[0].password)) {
+        const user = results[0];
+
+        if (!await bcrypt.compareSync(password, user.password)) {
             return res.render("login", {
                 message: "Incorrect password"
             });
         }
-    
 
-        // Redirect the user to the homepage upon successful login
-        res.redirect("/homepage");
+        // Check if the user has the required role (e.g., 'admin')
+        if (user.role !== 'admin') {
+            res.redirect("/homepage");
+        }
+        else {
+            res.redirect("/adminHomepage");
+        }
     });
 };
+
+
