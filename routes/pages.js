@@ -33,4 +33,8 @@ router.get("/admin", (req, res) => {
 router.get("/adminHomepage", (req, res) => {
     res.render("adminHomepage");
 });
+
+router.get("/addmovie", (req, res) => {
+    res.render("addmovie");
+});
 module.exports = router;

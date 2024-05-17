@@ -228,7 +228,7 @@
             <div class="title-wrapper">
               <p class="section-subtitle">Online Streaming</p>
 
-              <h2 class="h2 section-title">New Releases</h2>
+              {{!-- <h2 class="h2 section-title">New Releases</h2> --}}
             </div>
 
             <ul class="filter-list">
@@ -249,8 +249,8 @@
 
           </div>
 
-          <ul class="movies-list  has-scrollbar">
-
+          <ul class="movies-list  has-scrollbar" id ="movies">
+{{!--  --}}
             <li>
               <div class="movie-card">
 
@@ -265,7 +265,9 @@
 
                 <div class="title-wrapper">
                   <a href="/movie-details">
-                    <h3 class="card-title">The Northman</h3>
+                    {{!-- <h3 class="card-title">The Northman</h3> --}}
+
+                    <h3 class="card-title">Movie Title</h3>
                   </a>
 
                   <time datetime="2022">2022</time>
@@ -277,20 +279,23 @@
                   <div class="duration">
                     <ion-icon name="time-outline"></ion-icon>
 
-                    <time datetime="PT137M">137 min</time>
+                    {{!-- <time datetime="PT137M">137 min</time> --}}
                   </div>
 
                   <div class="rating">
                     <ion-icon name="star"></ion-icon>
-
-                    <data>8.5</data>
+{{!--  --}}
+                    {{!-- <data>8.5</data> --}}
                   </div>
                 </div>
 
               </div>
+
+            
             </li>
 
-            <li>
+{{!--  --}}
+            {{!-- <li>
               <div class="movie-card">
 
                 <a href="/movie-details">
@@ -407,7 +412,7 @@
                 </div>
 
               </div>
-            </li>
+            </li> --}}
 
           </ul>
 
@@ -502,7 +507,7 @@
         - #TOP RATED
       -->
 
-      <section class="top-rated">
+      {{!-- <section class="top-rated">
         <div class="container">
 
           <p class="section-subtitle">Online Streaming</p>
@@ -1052,7 +1057,7 @@
           </form>
 
         </div>
-      </section>
+      </section> --}}
 
     </article>
   </main>
@@ -1072,14 +1077,14 @@
 
         <div class="footer-brand-wrapper">
 
-          <a href="./index.html" class="logo">
-            <img src="/images/logo.svg" alt="Filmlane logo">
+          <a href="/" class="logo">
+            <img src="/images/MovieTrek.png" alt="MovieTrek logo">
           </a>
 
           <ul class="footer-list">
 
             <li>
-              <a href="./index.html" class="footer-link">Home</a>
+              <a href="/" class="footer-link">Home</a>
             </li>
 
             <li>
@@ -1163,7 +1168,7 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+          &copy; 2024 <a href="#">{{!--codewithsadee  --}}</a>. All Rights Reserved
         </p>
 
         <img src="/images/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img">
@@ -1186,6 +1191,7 @@
     - custom js link
   -->
   <script src="/js/script.js"></script>
+  {{!-- <script src="/js/API.js"></script> --}}
 
   <!-- 
     - ionicon link
