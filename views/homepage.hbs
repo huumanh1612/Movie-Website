@@ -73,7 +73,7 @@
 
         <div class="navbar-top">
 
-          <a href="#" class="logo">
+          <a href="/" class="logo">
             <img src="/images/logo.svg" alt="Filmlane logo">
           </a>
 
@@ -227,12 +227,12 @@
             <div class="title-wrapper">
               <p class="section-subtitle">Online Streaming</p>
 
-              <h2 class="h2 section-title">Upcoming Movies</h2>
+              <h2 class="h2 section-title">New Releases</h2>
             </div>
 
             <ul class="filter-list">
 
-              <li>
+              {{!-- <li>
                 <button class="filter-btn">Movies</button>
               </li>
 
@@ -242,20 +242,20 @@
 
               <li>
                 <button class="filter-btn">Anime</button>
-              </li>
+              </li> --}}
 
             </ul>
 
           </div>
 
-          <ul class="movies-list  has-scrollbar">
-
+          <ul class="movies-list  has-scrollbar" id ="movies">
+{{!--  --}}
             <li>
               <div class="movie-card">
 
                 <a href="/movie-details">
                   <figure class="card-banner">
-                    <img src="/images/Dune_2_VN_poster.jpg" alt="Dune: Part Two">
+                    <img src="/images/Dune_2_VN_poster.jpg" alt="The Northman movie poster">
                     <div class="play-button">
                       <i class="far fa-play-circle"></i>
                     </div>
@@ -264,32 +264,37 @@
 
                 <div class="title-wrapper">
                   <a href="/movie-details">
-                    <h3 class="card-title">Dune: Part Two</h3>
+                    {{!-- <h3 class="card-title">The Northman</h3> --}}
+
+                    <h3 class="card-title">Dune</h3>
                   </a>
 
-                  <time datetime="2022">2024</time>
+                  <time datetime="2022">2022</time>
                 </div>
 
                 <div class="card-meta">
                   <div class="badge badge-outline">HD</div>
 
                   <div class="duration">
-                    <ion-icon name="time-outline"></ion-icon>
+                    <ion-icon name="earth-outline"></ion-icon>
 
-                    <time datetime="PT137M">165 min</time>
+                    <span>en</span>
                   </div>
 
                   <div class="rating">
                     <ion-icon name="star"></ion-icon>
-
-                    <data>8.7</data>
+{{!--  --}}
+                    <data>8.5</data>
                   </div>
                 </div>
 
               </div>
+
+            
             </li>
 
-            <li>
+{{!--  --}}
+            {{!-- <li>
               <div class="movie-card">
 
                 <a href="/movie-details">
@@ -406,7 +411,7 @@
                 </div>
 
               </div>
-            </li>
+            </li> --}}
 
           </ul>
 
@@ -421,7 +426,7 @@
         - #SERVICE
       -->
 
-      <section class="service">
+      {{!-- <section class="service">
         <div class="container">
 
           <div class="service-banner">
@@ -491,7 +496,7 @@
           </div>
 
         </div>
-      </section>
+      </section> --}}
 
 
 
@@ -501,14 +506,14 @@
         - #TOP RATED
       -->
 
-      <section class="top-rated">
+       <section class="top-rated">
         <div class="container">
 
           <p class="section-subtitle">Online Streaming</p>
 
-          <h2 class="h2 section-title">Top Rated Movies</h2>
+          <h2 class="h2 section-title">Top Popular Movies</h2>
 
-          <ul class="filter-list">
+          <ul class="filter-list" id="tags">
 
             <li>
               <button class="filter-btn">Movies</button>
@@ -528,7 +533,7 @@
 
           </ul>
 
-          <ul class="movies-list">
+          <ul class="movies-list" id ="popular">
 
             <li>
               <div class="movie-card">
@@ -845,7 +850,7 @@
           </ul>
 
         </div>
-      </section>
+      </section> 
 
 
 
@@ -855,7 +860,7 @@
         - #TV SERIES
       -->
 
-      <section class="tv-series">
+      {{!-- <section class="tv-series">
         <div class="container">
 
           <p class="section-subtitle">Best TV Series</p>
@@ -1023,7 +1028,7 @@
           </ul>
 
         </div>
-      </section>
+      </section> --}}
 
 
 
@@ -1051,7 +1056,7 @@
           </form>
 
         </div>
-      </section>
+      </section> --}}
 
     </article>
   </main>
@@ -1071,14 +1076,14 @@
 
         <div class="footer-brand-wrapper">
 
-          <a href="./index.html" class="logo">
-            <img src="/images/logo.svg" alt="Filmlane logo">
+          <a href="/" class="logo">
+            <img src="/images/MovieTrek.png" alt="MovieTrek logo">
           </a>
 
           <ul class="footer-list">
 
             <li>
-              <a href="./index.html" class="footer-link">Home</a>
+              <a href="/" class="footer-link">Home</a>
             </li>
 
             <li>
@@ -1162,7 +1167,7 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+          &copy; 2024 <a href="#">{{!--codewithsadee  --}}</a>. All Rights Reserved
         </p>
 
         <img src="/images/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img">
@@ -1185,6 +1190,7 @@
     - custom js link
   -->
   <script src="/js/script.js"></script>
+  {{!-- <script src="/controllers/movieApi.js"></script> --}}
 
   <!-- 
     - ionicon link

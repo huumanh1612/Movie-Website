@@ -17,6 +17,8 @@ const db = mysql.createConnection({
 const publicDirectory = path.join(__dirname, './assets');
 app.use(express.static(publicDirectory));
 
+
+
 //Parse URL-encoded bodies (HTML forms)
 app.use(express.urlencoded({ extended: false}));
 //Parse URL-encoded bodies (API clients)
