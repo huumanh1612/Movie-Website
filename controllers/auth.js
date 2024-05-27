@@ -94,6 +94,9 @@ exports.login = async (req, res) => {
             });
         }
 
+        // Store the username in the session
+        req.session.username = user.name;
+
         // Check if the user has the required role (e.g., 'admin')
         if (user.role !== 'admin') {
             res.redirect("/homepage");
@@ -104,4 +107,12 @@ exports.login = async (req, res) => {
     });
 };
 
+exports.logout = (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return console.log(err);
+        }
+        res.redirect('/');
+    });
+};
 

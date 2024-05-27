@@ -141,6 +141,7 @@ const genres = [
 const topRateMovieContainer = document.getElementById('popular');
 const moviesContainer = document.getElementById('movies');
 const tagsEl = document.getElementById('tags');
+const topRateMovieContainerDisplay = document.getElementById('top-rated-display');
 
 let genreMap = {};
 function fetchGenres() {
@@ -305,16 +306,21 @@ function showMovies(movies) {
 
 
 function getTopRates(url) {
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data.results);
-      showTopRates(data.results); // Hiển thị tất cả phim được trả về từ API
-    })
-    .catch(error => {
-      console.error('Error fetching top rated movies:', error);
-    });
-}
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.results);
+        if (data.results.length === 0) {
+            topRateMovieContainerDisplay.innerHTML = `<h2 class="h2 section-title no-result">No Results Found</h2>`;
+        } else {
+          showTopRates(data.results); // Hiển thị tất cả phim được trả về từ API
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching top rated movies:', error);
+      });
+  }
+  
 
 
 function showTopRates(movies) {
@@ -389,25 +395,28 @@ function setGenre() {
       console.log(selectedGenre);
       getTopRates(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${encodeURI(selectedGenre.join(','))}`);
 
-      // highlightSelection();
+      highlightSelection();
     });
     tagsEl.appendChild(t);  // Append the list item to the tagsEl container
   });
 }
 
-// function highlightSelection() {
-//   const tags = document.querySelectorAll('.tag');
-//   tags.forEach(tag => {
-//     tag.classList.remove('highlight');
-//   });
-//   clearBtn();
-//   if (selectedGenre.length !== 0) {
-//     selectedGenre.forEach(id => {
-//       const highlightedTag = document.getElementById(id);
-//       highlightedTag.classList.add('highlight');
-//     });
-//   }
-// }
+function highlightSelection() {
+  const tags = document.querySelectorAll('.filter-btn');
+  tags.forEach(tag => {
+    tag.classList.remove('highlight');
+  });
+
+  if (selectedGenre.length != 0) {
+    selectedGenre.forEach(id => {
+      const highlightedTag = document.getElementById(id); // Here 'id' is the genre.id
+      if (highlightedTag) {
+        highlightedTag.classList.add('highlight');
+      }
+    });
+  }
+}
+  
 // function clearBtn(){
 //   let clearBtn = document.getElementById('clear');
 //   if(clearBtn){
@@ -428,7 +437,3 @@ function setGenre() {
   
 // }
 
-
-  
-  
-  

@@ -497,6 +497,21 @@ body.active { overflow: hidden; }
   pointer-events: all;
 }
 
+.profile {
+  color: aliceblue;
+  display: flex; /* Sắp xếp các phần tử theo chiều ngang */
+  align-items: center; /* Căn chỉnh phần tử theo chiều dọc */
+}
+
+.avatar {
+  font-size: 24px;
+  margin-right: 8px; /* Khoảng cách giữa biểu tượng và tên người dùng */
+}
+
+.username {
+  font: inherit;
+  font-size: 18px; /* Kích thước chữ cho tên người dùng */
+}
 
 
 
@@ -689,11 +704,17 @@ body.active { overflow: hidden; }
 \*-----------------------------------*/
 
 .top-rated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Sử dụng chiều cao của viewport */
   background: url("../images/top-rated-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   padding-block: var(--section-padding);
 }
+
+
 
 .top-rated .section-title { margin-bottom: 50px; }
 
@@ -734,7 +755,17 @@ body.active { overflow: hidden; }
 
 .top-rated .filter-btn:focus::after { right: 0; }
 
+.top-rated .filter-btn.highlight {
+  background-color: yellow;
+  color: var(--rich-black-fogra-39);
+}
 
+
+.no-results {
+  color: white;
+  font: inherit;
+
+}
 
 
 

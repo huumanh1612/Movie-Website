@@ -18,16 +18,19 @@ router.get('/movie-details', (req, res) => {
         res.render('movie-details');
 });
 
-router.get("/homepage", (req, res) => {
-    res.render("homepage");
+router.get('/homepage', (req, res) => {
+    res.render('homepage', {
+        username: req.session.username
+    });
 });
-
 router.get("/movie", (req, res) => {
     res.render("movie");
 });
 
-router.get("/admin", (req, res) => {
-    res.render("adminLogin");
+router.get('/adminHomepage', (req, res) => {
+    res.render('adminHomepage', {
+        username: req.session.username
+    });
 });
 
 router.get("/adminHomepage", (req, res) => {

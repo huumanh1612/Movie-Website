@@ -2,6 +2,8 @@ const express = require("express");
 const path = require ("path");
 const mysql = require("mysql");
 const dotenv = require("dotenv");
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 
 dotenv.config({path : './.env'});
 
@@ -13,6 +15,19 @@ const db = mysql.createConnection({
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE
 });
+
+// Configure session store
+const sessionStore = new MySQLStore({}, db);
+
+// Use session middleware
+app.use(session({
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+}));
   
 const publicDirectory = path.join(__dirname, './assets');
 app.use(express.static(publicDirectory));
