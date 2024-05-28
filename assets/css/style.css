@@ -513,6 +513,22 @@ body.active { overflow: hidden; }
   font-size: 18px; /* Kích thước chữ cho tên người dùng */
 }
 
+.no-result  {
+  font: inherit;
+  text-align: center;
+  color: aliceblue;
+  font-size: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* adjust based on your layout */
+  border-radius: 10px;
+}
+
+
+
+
 
 
 

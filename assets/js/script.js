@@ -141,7 +141,7 @@ const genres = [
 const topRateMovieContainer = document.getElementById('popular');
 const moviesContainer = document.getElementById('movies');
 const tagsEl = document.getElementById('tags');
-const topRateMovieContainerDisplay = document.getElementById('top-rated-display');
+const resultContainer = document.getElementById('no-founded');
 
 let genreMap = {};
 function fetchGenres() {
@@ -311,8 +311,10 @@ function getTopRates(url) {
       .then(data => {
         console.log(data.results);
         if (data.results.length === 0) {
-            topRateMovieContainerDisplay.innerHTML = `<h2 class="h2 section-title no-result">No Results Found</h2>`;
+          resultContainer.style.display = 'flex'; // Show the no-result message
+          topRateMovieContainer.innerHTML = ``;
         } else {
+          resultContainer.style.display = 'none'; // Hide the no-result message
           showTopRates(data.results); // Hiển thị tất cả phim được trả về từ API
         }
       })
