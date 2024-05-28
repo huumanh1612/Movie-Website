@@ -408,7 +408,7 @@ function highlightSelection() {
   tags.forEach(tag => {
     tag.classList.remove('highlight');
   });
-
+  clearBtn()
   if (selectedGenre.length != 0) {
     selectedGenre.forEach(id => {
       const highlightedTag = document.getElementById(id); // Here 'id' is the genre.id
@@ -419,23 +419,37 @@ function highlightSelection() {
   }
 }
   
-// function clearBtn(){
-//   let clearBtn = document.getElementById('clear');
-//   if(clearBtn){
-//       clearBtn.classList.add('highlight')
-//   }else{
-          
-//       let clear = document.createElement('div');
-//       clear.classList.add('tag','highlight');
-//       clear.id = 'clear';
-//       clear.innerText = 'Clear x';
-//       clear.addEventListener('click', () => {
-//           selectedGenre = [];
-//           setGenre();            
-//           getMovies(`${BASE_URL}/movie/now_playing?api_key=${API_KEY}`);
-//       })
-//       tagsEl.append(clear);
-//   }
+function clearBtn() {
+  let clearBtn = document.getElementById('clear');
   
-// }
+  if (selectedGenre.length === 0) {
+    getTopRates(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`); // Fetch the movies
+    // If no filter is selected, remove the clear button
+    if (clearBtn) {
+      clearBtn.remove();
+    }
+  } else {
+    // If there are selected filters, create or update the clear button
+    if (!clearBtn) {
+      // If the button doesn't exist, create it
+      clearBtn = document.createElement('div');
+      clearBtn.classList.add('tag', 'highlight', 'clear-btn');
+      clearBtn.id = 'clear';
+      clearBtn.innerText = 'CLEAR';
+      clearBtn.style.backgroundColor='red';
+      
+      // Attach the click event listener
+      clearBtn.addEventListener('click', () => {
+        selectedGenre = [];
+        setGenre(); // Assuming setGenre is a function that updates the UI for genres
+        getTopRates(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`); // Fetch the movies
+        clearBtn.remove(); // Remove the clear button after clicking
+      });
+
+      // Append the clear button to the tags element
+      tagsEl.append(clearBtn);
+    }
+  }
+}
+
 

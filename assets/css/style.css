@@ -513,18 +513,8 @@ body.active { overflow: hidden; }
   font-size: 18px; /* Kích thước chữ cho tên người dùng */
 }
 
-.no-result  {
-  font: inherit;
-  text-align: center;
-  color: aliceblue;
-  font-size: 2em;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px; /* adjust based on your layout */
-  border-radius: 10px;
-}
+
+
 
 
 
@@ -723,12 +713,13 @@ body.active { overflow: hidden; }
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Sử dụng chiều cao của viewport */
+  min-height: 50%; /* Sử dụng chiều cao của viewport */
   background: url("../images/top-rated-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   padding-block: var(--section-padding);
 }
+
 
 
 
@@ -777,11 +768,72 @@ body.active { overflow: hidden; }
 }
 
 
-.no-results {
-  color: white;
-  font: inherit;
 
+.no-result  {
+  font: inherit;
+  text-align: center;
+  color: aliceblue;
+  font-size: 2em;
+  margin-inline: 38%;
 }
+
+
+
+/*-----------------------------------*\
+ * #CLEAR BTN IN TOP-RATED
+\*-----------------------------------*/
+
+/* Target the clear button */
+#clear {
+  background: var(--rich-black-fogra-39);
+  color: var(--light-gray);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  padding: 17px 25px;
+  border-radius: 4px;
+  box-shadow: inset 0 3px 7px hsla(0, 0%, 0%, 0.8);
+}
+
+/* Apply hover styles */
+#clear:hover {
+  color: var(--citrine);
+  text-shadow: 0 3px 25px hsla(57, 97%, 45%, 0.5);
+}
+
+/* Apply focus styles */
+#clear:focus {
+  outline: none; /* Remove default outline */
+  color: var(--citrine);
+  text-shadow: 0 3px 25px hsla(57, 97%, 45%, 0.5);
+}
+
+/* Add pseudo-elements for focus */
+#clear:focus::before,
+#clear:focus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--citrine);
+  width: 2px;
+  height: 15px;
+}
+
+#clear:focus::before {
+  left: 0;
+}
+
+#clear:focus::after {
+  right: 0;
+}
+
+.top-rated.clear-btn {
+  background-color: red; /* Change to the desired color */
+  color: white; /* Text color */
+  /* Add any additional styling you need */
+}
+
 
 
 
